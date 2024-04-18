@@ -1,4 +1,3 @@
-require("dotenv").config();
 const axios = require("axios");
 
 const discordChannelWebhook = process.env.DISCORD_WEBHOOK;
@@ -54,7 +53,7 @@ async function verifyRconExpirationDate() {
 }
 
 async function main() {
-  if (!process.env.DISCORD_WEBHOOK || !discordChannelWebhook)
+  if (!discordChannelWebhook)
     throw new Error("Env File Error: DISCORD_WEBHOOK is missing");
 
   await axios.post(discordChannelWebhook, {
